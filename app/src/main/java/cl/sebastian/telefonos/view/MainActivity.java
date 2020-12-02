@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         viewModel = new ViewModelProvider(this).get(TelefonosViewModel.class);
         viewModel.loadInfo();
-
-
+        getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, ListFragment.newInstance("", "")).commit();
     }
 }
