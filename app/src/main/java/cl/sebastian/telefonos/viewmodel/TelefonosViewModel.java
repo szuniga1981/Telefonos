@@ -44,4 +44,8 @@ public class TelefonosViewModel extends ViewModel {
         });
     }
 
+    public void loadDetail(int id){
+
+    }
+
 }

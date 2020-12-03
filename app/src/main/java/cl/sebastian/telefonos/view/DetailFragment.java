@@ -3,34 +3,25 @@ package cl.sebastian.telefonos.view;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import cl.sebastian.telefonos.R;
-import cl.sebastian.telefonos.model.Producto;
 import cl.sebastian.telefonos.viewmodel.TelefonosViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ListFragment#newInstance} factory method to
+ * Use the {@link DetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+public class DetailFragment extends Fragment {
 
-
-public class ListFragment extends Fragment {
-
-    private static final String TAG = "ListFragment";
-
+    private TelefonosViewModel viewModel;
+    private static final String TAG = "DetailFragment";
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -40,7 +31,7 @@ public class ListFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ListFragment() {
+    public DetailFragment() {
         // Required empty public constructor
     }
 
@@ -50,11 +41,14 @@ public class ListFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ListFragment.
+     * @return A new instance of fragment DetailFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ListFragment newInstance(String param1, String param2) {
-        ListFragment fragment = new ListFragment();
+    public static DetailFragment newInstance(String param1, String param2) {
+
+      
+        
+        DetailFragment fragment = new DetailFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -70,43 +64,14 @@ public class ListFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    TelefonosViewModel viewModel;
-    ProductAdapter adapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        View view = inflater.inflate(R.layout.fragment_list, container, false);
-
-        RecyclerView recyclerView = view.findViewById(R.id.productRecycler);
-
+        Log.d(TAG, "onCreateView: "+mParam2);
         viewModel = new ViewModelProvider(this).get(TelefonosViewModel.class);
-        viewModel.getListaLProducto().observe(getViewLifecycleOwner(), new Observer<List<Producto>>() {
-            @Override
-            public void onChanged(List<Producto> list) {
-                adapter.updateItems(list);
-            }
-        });
-        viewModel.loadInfo();
-        adapter = new ProductAdapter(new ArrayList<>(),getContext());
-        recyclerView.setAdapter(adapter);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        adapter.getSelected().observe(getViewLifecycleOwner(), new Observer<Producto>() {
-            @Override
-            public void onChanged(Producto producto) {
-                Log.d(TAG, "onChanged: "+"Selecionado el elemento"+producto.toString());
-                getFragmentManager().
-                        beginTransaction().
-                        replace(R.id.frameLayout,DetailFragment.newInstance("",String.valueOf(producto.getId())))
-                        .commit();
-            }
-        });
-
-
-        return view;
-
+        viewModel.loadDetail(Integer.parseInt(mParam2));
+        return inflater.inflate(R.layout.fragment_detail, container, false);
     }
 }

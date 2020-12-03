@@ -95,6 +95,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                     //llamar al callback para mostrar el detalle de un telefono
                     selected.setValue(p);
                     Log.d(TAG, "onClick: "+p.toString());
+
                 }
             });
         }
