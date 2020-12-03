@@ -86,7 +86,7 @@ public class ListFragment extends Fragment {
             }
         });
         viewModel.loadInfo();
-        adapter = new ProductAdapter(new ArrayList<Producto>());
+        adapter = new ProductAdapter(new ArrayList<>(),getContext());
         recyclerView.setAdapter(adapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

@@ -22,14 +22,17 @@ import cl.sebastian.telefonos.viewmodel.TelefonosViewModel;
 Lista de tareas
 [x] Crear y subir a GitHub.
 
-[] Adpater.
+[x] Adpater.
 [x] Retrofit (Retrofit Client, Api Interface (@GET)). Añadir permisos internet Manifest
 [] Activar ViewBinding e implementar().
 [] POJO
 *   [x] lista
 *   [] detalle
 [] Layout (el o los).
-[] Implemetar Adapter y RecyclerView.
+*   [x] layout lista
+*   [x] layout elemento
+*   [] layout detalle
+[x] Implemetar Adapter y RecyclerView.
 [] Test unitarios a modelo y ViewModel
 [x] Crear clase ViewModel
 *   [] Implementar ViewModel
