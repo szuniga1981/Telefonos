@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ import cl.sebastian.telefonos.viewmodel.TelefonosViewModel;
 
 
 public class ListFragment extends Fragment {
+
+    private static final String TAG = "ListFragment";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -90,6 +93,15 @@ public class ListFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        adapter.getSelected().observe(getViewLifecycleOwner(), new Observer<Producto>() {
+            @Override
+            public void onChanged(Producto producto) {
+                Log.d(TAG, "onChanged: "+"Selecionado el elemento"+producto.toString());
+            }
+        });
+
+
         return view;
 
     }
