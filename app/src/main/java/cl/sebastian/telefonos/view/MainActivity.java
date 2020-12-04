@@ -25,9 +25,9 @@ Lista de tareas
 [x] Adpater.
 [x] Retrofit (Retrofit Client, Api Interface (@GET)). Añadir permisos internet Manifest
 [] Activar ViewBinding e implementar().
-[] POJO
+[X] POJO
 *   [x] lista
-*   [] detalle
+*   [X] detalle
 [] Layout (el o los).
 *   [x] layout lista
 *   [x] layout elemento
@@ -35,7 +35,7 @@ Lista de tareas
 [x] Implemetar Adapter y RecyclerView.
 [] Test unitarios a modelo y ViewModel
 [x] Crear clase ViewModel
-*   [] Implementar ViewModel
+*   [X] Implementar ViewModel
 
  */
 

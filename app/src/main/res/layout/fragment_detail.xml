@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.DetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/ivDetail"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tvDetailName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/ivDetail"
+        app:layout_constraintStart_toStartOf="@+id/ivDetail"
+        app:layout_constraintTop_toBottomOf="@+id/ivDetail" />
+
+    <TextView
+        android:id="@+id/tvDetailPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivDetail"
+        app:layout_constraintTop_toTopOf="@+id/ivDetail" />
+
+    <TextView
+        android:id="@+id/tvDetailDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/ivDetail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ivDetail"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailName" />
+
+    <TextView
+        android:id="@+id/tvDetailLastPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tvDetailPrice"
+        app:layout_constraintStart_toStartOf="@+id/tvDetailPrice"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailPrice" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipCredit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:clickable="false"
+        app:layout_constraintStart_toStartOf="@+id/tvDetailLastPrice"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailLastPrice" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
